@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meu Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>🚀 Meu Blog de Tecnologia</h1>
+
+    <div class="container">
+        {% if session.get('admin_logado') %}
+            <p>
+                <a href="/novo">➕ Criar novo post</a> |
+                <a href="/logout">🚪 Sair</a>
+            </p>
+        {% else %}
+            <p><a href="/login">🔐 Login Admin</a></p>
+        {% endif %}
+
+        {% for post in posts %}
+            <div class="post">
+                <img src="{{ url_for('static', filename=post.imagem) }}" width="100%">
+
+                <h3>
+                    <a href="/post/{{ post.id }}">{{ post.titulo }}</a>
+                </h3>
+
+                <p>{{ post.conteudo }}</p>
+
+                {% if session.get('admin_logado') %}
+                    <p><a href="/editar/{{ post.id }}">✏️ Editar</a></p>
+
+                    <form action="/excluir/{{ post.id }}" method="POST">
+                        <button type="submit">🗑️ Excluir</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

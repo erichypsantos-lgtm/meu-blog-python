@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>✏️ Editar Post</h1>
+
+    <div class="container">
+        <form method="POST" enctype="multipart/form-data">
+            <p>
+                <label>Título:</label><br>
+                <input type="text" name="titulo" value="{{ post.titulo }}" required>
+            </p>
+
+            <p>
+                <label>Conteúdo:</label><br>
+                <textarea name="conteudo" rows="6" required>{{ post.conteudo }}</textarea>
+            </p>
+
+            <p>
+                <label>Nova imagem:</label><br>
+                <input type="file" name="imagem" accept="image/*">
+            </p>
+
+            <button type="submit">Salvar alterações</button>
+        </form>
+
+        <br>
+        <a href="/">⬅ Voltar</a>
+    </div>
+</body>
+</html>

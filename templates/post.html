@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <h1>{{ post.titulo }}</h1>
+
+    <div class="container">
+        <img src="{{ url_for('static', filename=post.imagem) }}" width="100%">
+        <p>{{ post.conteudo }}</p>
+
+        <br>
+        <a href="/">⬅ Voltar</a>
+    </div>
+
+</body>
+</html>

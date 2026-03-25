@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>🔐 Login do Administrador</h1>
+
+    <div class="container">
+        {% if erro %}
+            <p>{{ erro }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <p>
+                <label>Usuário:</label><br>
+                <input type="text" name="usuario" required>
+            </p>
+
+            <p>
+                <label>Senha:</label><br>
+                <input type="password" name="senha" required>
+            </p>
+
+            <button type="submit">Entrar</button>
+        </form>
+
+        <br>
+        <a href="/">⬅ Voltar</a>
+    </div>
+</body>
+</html>
