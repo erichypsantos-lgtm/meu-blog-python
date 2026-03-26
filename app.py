@@ -69,7 +69,7 @@ def novo_post():
     if request.method == 'POST':
         titulo = request.form['titulo']
         conteudo = request.form['conteudo']
-        arquivo = request.files['imagem']
+        arquivo = request.files.get('imagem')
 
         nome_arquivo = 'uploads/padrao.jpg'
 
@@ -96,7 +96,7 @@ def editar_post(id):
         post.titulo = request.form['titulo']
         post.conteudo = request.form['conteudo']
 
-        arquivo = request.files['imagem']
+        arquivo = request.files.get('imagem')
         if arquivo and arquivo.filename:
             nome_seguro = secure_filename(arquivo.filename)
             caminho_arquivo = os.path.join(app.config['UPLOAD_FOLDER'], nome_seguro)
