@@ -64,3 +64,17 @@ input, textarea {
     background: #1b1b1b;
     color: white;
 }
+button {
+    background: linear-gradient(135deg, #d4af37, #b8860b);
+    color: #111111;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+button:hover {
+    opacity: 0.92;
+}
